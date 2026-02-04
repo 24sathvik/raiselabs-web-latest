@@ -1,0 +1,30 @@
+# Robots.txt for Raise Lab Equipment
+# https://raiselabequip.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://raiselabequip.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow admin and API routes
+Disallow: /admin
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow all search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
