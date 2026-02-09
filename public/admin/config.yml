@@ -20,9 +20,19 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Content", name: "body", widget: "markdown" }
       - { label: "Author", name: "author", widget: "string", default: "Raise Lab Equipment" }
-      - { label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+
+      # ✅ Blog date (already correct)
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+
       - { label: "Cover Image", name: "coverImage", widget: "image" }
       - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read" }
+
       - label: "Category"
         name: "category"
         widget: "select"
@@ -34,8 +44,11 @@ collections:
           - "Product Updates"
           - "Industry News"
           - "Technical Guides"
+
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
       - { label: "Published", name: "published", widget: "boolean", default: true }
+
+
 
   - name: "news"
     label: "News"
@@ -48,13 +61,31 @@ collections:
             name: "posts"
             widget: "list"
             fields:
+
               - { label: "ID", name: "id", widget: "string", hint: "Unique identifier (lowercase-with-dashes)" }
+
               - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly slug (must match ID)" }
+
               - { label: "Title", name: "title", widget: "string" }
+
               - { label: "Excerpt", name: "excerpt", widget: "text" }
+
               - { label: "Content (HTML)", name: "content", widget: "markdown", hint: "This will be converted to HTML" }
-              - { label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+
+
+              # ✅ FIXED DATE FIELD FOR NEWS (IMPORTANT)
+              - label: "Publish Date"
+                name: "date"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                picker_utc: false
+                required: true
+
+
               - { label: "Cover Image", name: "image", widget: "image" }
+
               - label: "Category"
                 name: "category"
                 widget: "select"
@@ -66,5 +97,7 @@ collections:
                   - "Expansion"
                   - "Company News"
                   - "Industry Updates"
+
               - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
               - { label: "Published", name: "published", widget: "hidden", default: true }
